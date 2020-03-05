@@ -1,5 +1,5 @@
 import re
-## esta mal algo debo revisar a fondo esto 
+
 def comision(valor):
   valorfijo=300
   valorvariable=valor*0.20
@@ -8,19 +8,19 @@ def comision(valor):
   else:
     return valorvariable
 
-  _aportacion=""
-  aportacion=0.00
-  minimo=500
-  while True:
-    _aportacion = input("Aportacion: ")
-    if re.search("^\d+(\.\d+)?$",_aportacion):
-      aportacion = float(_aportacion)
-      if aportacion <500:
-        print("Aportacion minima $500.00")
-        else:
-          break
+_aportacion=""
+aportacion=0.00
+minimo=500
+while True:
+  _aportacion = input("Aportacion: ")
+  if re.search("^\d+(\.\d+)?$",_aportacion):
+    aportacion = float(_aportacion)
+    if aportacion <minimo:
+      print("Aportacion minima $500.00")
     else:
-      print("Se requiere una cantidad")
+      break
+  else:
+    print("Se requiere una cantidad")
 
 txt="Aportacion al artista ${:,.2f}"
 print(txt.format(comision(aportacion)))
